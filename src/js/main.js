@@ -22,9 +22,9 @@ const productsList = [
     {name: 'Вода', price: 30, quantity: rndInt(0, 5)},
     {name: 'Шоколадка', price: 44, quantity: rndInt(0, 8)},    
     {name: 'Чипсы', price: 80, quantity: rndInt(0, 5)},
-    {name: 'Булочка', price: 28, quantity: rndInt(0, 7)},
+    {name: 'Булочка', price: 28, quantity: rndInt(1, 7)},
     {name: 'Кофе', price: 130, quantity: rndInt(0, 5)},
-    {name: 'Жвачка', price: 1, quantity: rndInt(0, 50)},
+    {name: 'Жвачка', price: 1, quantity: rndInt(20, 50)},
 ];
 
 // Класс для создания и последующего создания "карточки" продукта
@@ -226,29 +226,27 @@ function getChange() {
         }
     }
 
-    for (let i = currency.length-1; i >= 0; i--) {  
+    for (let i = currency.length-2; i >= 0; i--) {  
         temp(i);
         let bank = document.querySelectorAll('.cash_machine>span>span');
         for (let k = 0; k < bank.length; k++) {
             bank[k].textContent = currency[k].quantity;
         }
         
-        amount.innerHTML = 'Остаток: '+ value;
-        console.log(value);   
+        amount.innerHTML = 'Остаток: '+ value;   
     }
 }
 
 
 //Выдача сдачи товаром, если нельзя расплатиться деньгами полностью
-function getProductChange () {
+function getProductChange() {
     document.querySelectorAll('.product').forEach(element => {
         
         let quantity = element.querySelector('.product_quantity');
+        
         if (+quantity.innerHTML > 0) {
-            console.log(1)
             for (let i = 0; +quantity.innerHTML >= i; i++) {
                 getProduct(element);
-                console.log(value)
             }
         }
     })
@@ -282,8 +280,16 @@ document.querySelectorAll(".cash").forEach(element => {
 //Событие при нажатии кнопки получения сдачи
 document.querySelector('.get_change').addEventListener('click', () =>{    
     getChange();
+    for (let i = 0; i<productsList.length; i++) {
+        if (productsList[i].quantity>0) {
+            getProductChange(); 
+            continue
+        } else {
+            break
+        }
+    }
     getProductChange();
-    if (value > 0) {
+    if (value > 0) {            
         logChange('Приносим свои извинения', 'Мы не можем выплатить сдачу полностью')
     } else {
         logChange('Спасибо за покупку','Приходите к нам еще')
