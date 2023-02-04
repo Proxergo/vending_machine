@@ -1,0 +1,114 @@
+@import "~normalize.css";
+
+body {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1em;
+}
+
+.machine {
+    max-width: 1024px;
+    margin: 5vh auto;
+    padding: 20px;
+    display: grid;  
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 18px;
+    grid-row-gap: 20px;
+    border: 3px solid black;
+    justify-items: center;  
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+div:hover {
+    cursor: default;
+}
+
+.products_box, .sidepud {
+    width: 100%;
+}
+
+.products_box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 25%));    
+}
+
+.product {
+    margin: 5%;
+    padding: 10%;
+    border: 1rem outset;
+}
+
+.sidepud {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(100px, 35vh));
+    grid-row-gap: 20px;
+}
+
+.sidepud>div {
+    background: linear-gradient(333deg, rgba(163,0,246,1) 0%, rgba(18,236,221,1) 100%);
+   text-align: center;
+}
+
+.cash_acceptor {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5%;
+    padding: 10% 5%;
+}
+
+.cash_acceptor>p {
+    grid-column:span 4;
+}
+
+.cash_return {
+    grid-column: span 4;
+}
+
+.display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);    
+    align-items: center;
+    justify-content: center;
+    padding: 5% 5%;
+}
+
+.current_amount{
+    grid-row: 2;
+    grid-column: span 2;
+    background-color:white;
+    text-align: center;
+}
+
+.cash_machine {    
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 5%;
+}
+
+.banknote {
+    background-color:white;
+}
+
+.empty {
+    background-color: rgb(187, 33, 33);
+    border: 1rem inset;
+}
+
+.log_helper {
+    grid-column: span 2;
+    background-color:white;
+    font-size: 20px;
+}
+
+.log_helper>p {
+    margin: 0;
+}
+
+.get_change {
+    grid-column: span 4;
+}
