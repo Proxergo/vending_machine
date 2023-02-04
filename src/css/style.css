@@ -6,7 +6,7 @@ body {
 }
 
 .machine {
-    max-width: 1024px;
+    max-width: 60vw;
     margin: 5vh auto;
     padding: 20px;
     display: grid;  
@@ -36,8 +36,7 @@ div:hover {
 
 .product {
     margin: 5%;
-    padding: 10%;
-    border: 1rem outset;
+    border: 8px outset;
 }
 
 .sidepud {
